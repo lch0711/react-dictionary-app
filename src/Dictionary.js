@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Results from "./Results";
 import Photos from "./Photos";
+import "./Dictionary.css";
 
 import axios from "axios";
 
@@ -23,7 +24,7 @@ export default function Dictionary() {
 
     let pexelsApiKey =
       "563492ad6f91700001000001029ef05cc3634f97882f35bd71ff9f4d";
-    let photoUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
+    let photoUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=2`;
     axios
       .get(photoUrl, {
         headers: {
@@ -39,9 +40,12 @@ export default function Dictionary() {
 
   return (
     <div className="Dictionary">
-      <form onSubmit={Search}>
-        <input type="search" onChange={handleKeywordChange} />
-      </form>
+      <section>
+        <h1>Search for a Word...</h1>
+        <form onSubmit={Search}>
+          <input type="search" onChange={handleKeywordChange} />
+        </form>
+      </section>
       <Results results={results} />
       <Photos photo={photos} />
     </div>

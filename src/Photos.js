@@ -4,23 +4,24 @@ import "./Photos.css";
 export default function Photos(props) {
   if (props.photo) {
     return (
-      <section className="Photo">
+      <div className="Photos">
         <div className="row">
           {props.photo.map(function (photo, index) {
             return (
-              <div className="col-3" key={index}>
+              <section className="col-4" key={index}>
                 <a href={photo.src.original} target="_blank" rel="noreferrer">
                   <img
                     src={photo.src.landscape}
                     alt={index}
                     className="img-fluid"
+                    width={400}
                   ></img>
                 </a>
-              </div>
+              </section>
             );
           })}
         </div>
-      </section>
+      </div>
     );
   } else {
     return null;
